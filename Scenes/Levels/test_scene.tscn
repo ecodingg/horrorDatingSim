@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://dbbra6rweo2g3"]
+
+[ext_resource type="PackedScene" uid="uid://cakiy68hruau8" path="res://Scenes/Characters/player_cat.tscn" id="1_sa56n"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="PlayerCat" parent="." instance=ExtResource("1_sa56n")]
+position = Vector2(-162, -413)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerCat"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-162, -413)
