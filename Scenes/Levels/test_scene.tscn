@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbbra6rweo2g3"]
+[gd_scene load_steps=5 format=3 uid="uid://dbbra6rweo2g3"]
 
 [ext_resource type="PackedScene" uid="uid://cakiy68hruau8" path="res://Scenes/Characters/player_cat.tscn" id="1_sa56n"]
 [ext_resource type="Texture2D" uid="uid://tao18n3a5fh3" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="2_rgoo8"]
+[ext_resource type="PackedScene" uid="uid://becx7csw0b07r" path="res://Scenes/Objects/Egg.tscn" id="3_vf4ov"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6pln"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,3 +24,13 @@ scale = Vector2(3, 3)
 position = Vector2(-165, -433)
 scale = Vector2(13.9688, 32.125)
 texture = ExtResource("2_rgoo8")
+
+[node name="Egg" parent="." instance=ExtResource("3_vf4ov")]
+position = Vector2(-429, -395)
+scale = Vector2(2, 2)
+
+[node name="Actionable" type="Area2D" parent="Egg"]
+
+[node name="Dialogue Bubble" type="CollisionShape2D" parent="Egg/Actionable"]
+scale = Vector2(2, 2)
+shape = SubResource("CircleShape2D_g6pln")
