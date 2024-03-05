@@ -1,7 +1,7 @@
 [gd_scene load_steps=28 format=3 uid="uid://cakiy68hruau8"]
 
+[ext_resource type="Script" path="res://Scenes/Characters/player_cat.cs" id="1_aqyi8"]
 [ext_resource type="Texture2D" uid="uid://c8ka27mbn5y7m" path="res://Art/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_kcym8"]
-[ext_resource type="Script" path="res://Scripts/player_cat.gd" id="1_vlbrr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt47s"]
 size = Vector2(10, 16)
@@ -234,7 +234,7 @@ states/Walk/position = Vector2(573, 99.9844)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_i5y20"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_iwjms"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_h14fm")]
 
 [node name="PlayerCat" type="CharacterBody2D"]
-script = ExtResource("1_vlbrr")
+script = ExtResource("1_aqyi8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_kcym8")
@@ -255,5 +255,5 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_ht6dx")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Idle/blend_position = Vector2(0, -0.1)
+parameters/Idle/blend_position = Vector2(0, 1.02493)
 parameters/Walk/blend_position = Vector2(0, 0)
