@@ -263,6 +263,7 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 script = ExtResource("1_vlbrr")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 3
 texture = ExtResource("1_kcym8")
 hframes = 4
 vframes = 4
@@ -281,7 +282,7 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_ht6dx")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Idle/blend_position = Vector2(0, -0.1)
+parameters/Idle/blend_position = Vector2(0, 0.00582004)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="Marker2D" type="Marker2D" parent="."]

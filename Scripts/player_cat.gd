@@ -23,7 +23,7 @@ func _physics_process(_delta):
 	move_and_slide()
 
 func _unhandled_input(_event: InputEvent) -> void:
-	if Input.is_action_just_pressed("ui_accept"):
+	if Input.is_action_just_pressed("interact"):
 		var actionables = actionable_finder.get_overlapping_areas()
 		if actionables.size() > 0:
 			actionables[0].action()

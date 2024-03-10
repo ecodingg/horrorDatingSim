@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cakiy68hruau8" path="res://Scenes/Characters/player_cat.tscn" id="1_sa56n"]
 [ext_resource type="Texture2D" uid="uid://tao18n3a5fh3" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="2_rgoo8"]
 [ext_resource type="PackedScene" uid="uid://dr02pun6jmevv" path="res://Scenes/Objects/Egg.tscn" id="3_vf4ov"]
-[ext_resource type="PackedScene" uid="uid://becx7csw0b07r" path="res://Scenes/Actionable.tscn" id="4_pf4no"]
+[ext_resource type="PackedScene" uid="uid://becx7csw0b07r" path="res://Scenes/Objects/Actionable.tscn" id="4_pf4no"]
 [ext_resource type="Resource" uid="uid://bn70ok7osnnlg" path="res://Scripts/Dialogue/test.dialogue" id="5_tpo56"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4jloq"]
