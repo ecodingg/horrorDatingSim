@@ -1,0 +1,15 @@
+[remap]
+
+importer="dialogue_manager_compiler_11"
+type="Resource"
+uid="uid://c0u2ft3ooc2iq"
+path="res://.godot/imported/example.dialogue-f6d04ac5677c0705ed72488d7a22c80b.tres"
+
+[deps]
+
+source_file="res://Scripts/Dialogue/example.dialogue"
+dest_files=["res://.godot/imported/example.dialogue-f6d04ac5677c0705ed72488d7a22c80b.tres"]
+
+[params]
+
+defaults=true

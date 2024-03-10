@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export  var move_speed : float = 100
 @export  var starting_direction : Vector2 = Vector2(0, 1)
 #parameters/Idle/blend_position
+@onready var actionable_finder: Area2D = $Marker2D/Area2D
 
 @onready var animation_tree = $AnimationTree
 
@@ -21,5 +22,9 @@ func _physics_process(_delta):
 	# Move and Slide function uses velocity of character body to move charactr on map
 	move_and_slide()
 
-
-
+func _unhandled_input(_event: InputEvent) -> void:
+	if Input.is_action_just_pressed("ui_accept"):
+		var actionables = actionable_finder.get_overlapping_areas()
+		if actionables.size() > 0:
+			actionables[0].action()
+			return

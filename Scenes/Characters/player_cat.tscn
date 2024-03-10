@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cakiy68hruau8"]
+[gd_scene load_steps=29 format=3 uid="uid://cakiy68hruau8"]
 
 [ext_resource type="Texture2D" uid="uid://c8ka27mbn5y7m" path="res://Art/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_kcym8"]
 [ext_resource type="Script" path="res://Scripts/player_cat.gd" id="1_vlbrr"]
@@ -19,6 +19,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_jle1q"]
@@ -53,6 +65,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [8, 9]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Marker2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_vc25h"]
@@ -233,6 +257,8 @@ states/Walk/node = SubResource("AnimationNodeBlendSpace2D_7uds4")
 states/Walk/position = Vector2(573, 99.9844)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_i5y20"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_iwjms"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_h14fm")]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_kpqri"]
+
 [node name="PlayerCat" type="CharacterBody2D"]
 script = ExtResource("1_vlbrr")
 
@@ -257,3 +283,15 @@ tree_root = SubResource("AnimationNodeStateMachine_ht6dx")
 anim_player = NodePath("../AnimationPlayer")
 parameters/Idle/blend_position = Vector2(0, -0.1)
 parameters/Walk/blend_position = Vector2(0, 0)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Marker2D"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Area2D"]
+position = Vector2(0, 12)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_kpqri")

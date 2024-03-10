@@ -1,16 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://becx7csw0b07r"]
+[gd_scene load_steps=2 format=3 uid="uid://dr02pun6jmevv"]
 
 [ext_resource type="Texture2D" uid="uid://bmu5jr5be1imy" path="res://Art/Sprout Lands - Sprites - Basic pack/Objects/Egg_item.png" id="1_cvnvj"]
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_amb7i"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2kdan"]
-
-[node name="Egg" type="StaticBody2D"]
-physics_material_override = SubResource("PhysicsMaterial_amb7i")
+[node name="Egg" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
 texture = ExtResource("1_cvnvj")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_2kdan")
