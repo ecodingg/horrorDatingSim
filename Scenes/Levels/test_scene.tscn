@@ -2,24 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://cakiy68hruau8" path="res://Scenes/Characters/player_cat.tscn" id="1_sa56n"]
 [ext_resource type="Texture2D" uid="uid://tao18n3a5fh3" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="2_rgoo8"]
+<<<<<<< Updated upstream
 [ext_resource type="PackedScene" uid="uid://dr02pun6jmevv" path="res://Scenes/Objects/Egg.tscn" id="3_vf4ov"]
 [ext_resource type="PackedScene" uid="uid://becx7csw0b07r" path="res://Scenes/Objects/Actionable.tscn" id="4_pf4no"]
 [ext_resource type="Resource" uid="uid://bn70ok7osnnlg" path="res://Scripts/Dialogue/test.dialogue" id="5_tpo56"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4jloq"]
+=======
+[ext_resource type="PackedScene" uid="uid://cc6x1gvkxg6jt" path="res://Scenes/Objects/Egg.tscn" id="3_vf4ov"]
+[ext_resource type="PackedScene" uid="uid://diu72pgjgh8fw" path="res://Scenes/Objects/Actionable.tscn" id="4_s5acn"]
+[ext_resource type="Resource" uid="uid://cgbsjiy3qcasy" path="res://Scripts/Dialogue/hash_encounter.dialogue" id="5_kbroc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4ut5k"]
+>>>>>>> Stashed changes
 
 [node name="Node2D" type="Node2D"]
 
-[node name="PlayerCat" parent="." instance=ExtResource("1_sa56n")]
-top_level = true
-position = Vector2(-162, -413)
-scale = Vector2(3, 3)
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerCat"]
-remote_path = NodePath("../../Camera2D")
-
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-162, -413)
+position = Vector2(-239, -379)
 scale = Vector2(3, 3)
 
 [node name="Water" type="Sprite2D" parent="."]
@@ -27,7 +27,15 @@ position = Vector2(-165, -433)
 scale = Vector2(13.9688, 32.125)
 texture = ExtResource("2_rgoo8")
 
+[node name="PlayerCat" parent="." instance=ExtResource("1_sa56n")]
+position = Vector2(-239, -379)
+scale = Vector2(3, 3)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerCat"]
+remote_path = NodePath("../../Camera2D")
+
 [node name="Egg" parent="." instance=ExtResource("3_vf4ov")]
+<<<<<<< Updated upstream
 position = Vector2(-409, -406)
 
 [node name="Actionable" parent="Egg" instance=ExtResource("4_pf4no")]
@@ -37,3 +45,14 @@ dialogue_resource = ExtResource("5_tpo56")
 position = Vector2(13, 2)
 scale = Vector2(2, 2)
 shape = SubResource("CircleShape2D_4jloq")
+=======
+position = Vector2(-463, -376)
+scale = Vector2(2, 2)
+
+[node name="Actionable" parent="Egg" instance=ExtResource("4_s5acn")]
+DialogueResource = ExtResource("5_kbroc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Egg/Actionable"]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_4ut5k")
+>>>>>>> Stashed changes

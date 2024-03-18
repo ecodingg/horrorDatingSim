@@ -1,0 +1,24 @@
+~ hash_encounter
+
+Hash: Hey, you look new in town
+- Yeah, I just moved in
+- I don't know what you're talking about
+
+Hash: It's no biggie, we just don't get a lot of new people
+
+Hash: Well, welcome to our little shop, we sell everything from furniture to power tools to whatever DIY tools you might need
+
+Hash: My name is Hash, it's nice to meet someone as cute as you
+- What, do you use that line on everyone?
+	Hash: Oops, busted
+- Gosh, that's sweet
+	Hash: Just commenting on what I see
+	
+Hash: Anyways, I'd love to meet more later. Want my phone number?
+- Yeah!
+	Hash: Great!
+- No thanks
+	Hash: Oh well, I'm sure I'll see you around
+	
+
+=> END

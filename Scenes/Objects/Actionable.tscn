@@ -1,8 +1,18 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=2 format=3 uid="uid://becx7csw0b07r"]
 
 [ext_resource type="Script" path="res://Scripts/Actionables.gd" id="1_5wn4i"]
+=======
+[gd_scene load_steps=2 format=3 uid="uid://diu72pgjgh8fw"]
+
+[ext_resource type="Script" path="res://Scripts/Actionable.cs" id="1_6a311"]
+>>>>>>> Stashed changes
 
 [node name="Actionable" type="Area2D"]
 collision_layer = 16
 collision_mask = 0
+<<<<<<< Updated upstream
 script = ExtResource("1_5wn4i")
+=======
+script = ExtResource("1_6a311")
+>>>>>>> Stashed changes

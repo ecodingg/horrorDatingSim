@@ -1,8 +1,21 @@
+<<<<<<< Updated upstream
 [gd_scene load_steps=2 format=3 uid="uid://dr02pun6jmevv"]
 
 [ext_resource type="Texture2D" uid="uid://bmu5jr5be1imy" path="res://Art/Sprout Lands - Sprites - Basic pack/Objects/Egg_item.png" id="1_cvnvj"]
 
 [node name="Egg" type="Node2D"]
+=======
+[gd_scene load_steps=3 format=3 uid="uid://cc6x1gvkxg6jt"]
+
+[ext_resource type="Texture2D" uid="uid://bmu5jr5be1imy" path="res://Art/Sprout Lands - Sprites - Basic pack/Objects/Egg_item.png" id="1_cvnvj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2s2vf"]
+
+[node name="Egg" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2s2vf")
+>>>>>>> Stashed changes
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(2, 2)
