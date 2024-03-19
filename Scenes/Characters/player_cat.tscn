@@ -1,9 +1,5 @@
 [gd_scene load_steps=29 format=3 uid="uid://cakiy68hruau8"]
 
-<<<<<<< Updated upstream
-=======
-[ext_resource type="Script" path="res://Scripts/Player/player_cat.cs" id="1_ffbwm"]
->>>>>>> Stashed changes
 [ext_resource type="Texture2D" uid="uid://c8ka27mbn5y7m" path="res://Art/Sprout Lands - Sprites - Basic pack/Characters/Basic Charakter Spritesheet.png" id="1_kcym8"]
 [ext_resource type="Script" path="res://Scripts/player_cat.gd" id="1_vlbrr"]
 
@@ -256,23 +252,15 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ht6dx"]
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_midc3")
 states/Idle/position = Vector2(323, 101.656)
-states/Start/position = Vector2(110, 107.75)
+states/Start/position = Vector2(110, 108.417)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_7uds4")
 states/Walk/position = Vector2(573, 99.9844)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_i5y20"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_iwjms"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_h14fm")]
 
-<<<<<<< Updated upstream
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpqri"]
 
 [node name="PlayerCat" type="CharacterBody2D"]
 script = ExtResource("1_vlbrr")
-=======
-[sub_resource type="CircleShape2D" id="CircleShape2D_gmfbr"]
-radius = 6.0
-
-[node name="PlayerCat" type="CharacterBody2D"]
-script = ExtResource("1_ffbwm")
->>>>>>> Stashed changes
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 3
@@ -294,13 +282,8 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_ht6dx")
 anim_player = NodePath("../AnimationPlayer")
-<<<<<<< Updated upstream
 parameters/Idle/blend_position = Vector2(0, 0.00582004)
 parameters/Walk/blend_position = Vector2(0, 0)
-=======
-parameters/Idle/blend_position = Vector2(0.00109768, -0.0157143)
-parameters/Walk/blend_position = Vector2(-0.000365913, 0)
->>>>>>> Stashed changes
 
 [node name="Marker2D" type="Marker2D" parent="."]
 
@@ -309,12 +292,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Area2D"]
-<<<<<<< Updated upstream
 position = Vector2(0, 12)
 rotation = 1.5708
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_kpqri")
-=======
-position = Vector2(0, 10)
-shape = SubResource("CircleShape2D_gmfbr")
->>>>>>> Stashed changes
