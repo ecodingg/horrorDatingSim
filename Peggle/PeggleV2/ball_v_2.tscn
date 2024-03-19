@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://5x4dw0hp5e"]
+
+[ext_resource type="Texture2D" uid="uid://csrnqrc15qdro" path="res://Peggle/PeggleV2/ball.png" id="1_nmc7f"]
+
+[node name="ballV2" type="Sprite2D"]
+position = Vector2(225, 195)
+scale = Vector2(0.476562, 0.484375)
+texture = ExtResource("1_nmc7f")
