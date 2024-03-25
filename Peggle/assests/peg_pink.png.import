@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bolpj0fb5p88s"
-path="res://.godot/imported/pixil-layer-0.png-0902ff1fe1f05d914ef7180117b3ec36.ctex"
+uid="uid://s1jcg8hm17ai"
+path="res://.godot/imported/peg_pink.png-a040a8d3feb001c99195ff2b29950db5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Peggle/PeggleV2/pixil-layer-0.png"
-dest_files=["res://.godot/imported/pixil-layer-0.png-0902ff1fe1f05d914ef7180117b3ec36.ctex"]
+source_file="res://Peggle/assests/peg_pink.png"
+dest_files=["res://.godot/imported/peg_pink.png-a040a8d3feb001c99195ff2b29950db5.ctex"]
 
 [params]
 

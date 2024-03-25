@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://cur0ql738vhcm"]
+
+[ext_resource type="Texture2D" uid="uid://dogornghfrgo7" path="res://Peggle/assests/l_peg.png" id="1_fqhem"]
+
+[node name="peg_l" type="CharacterBody2D"]
+position = Vector2(688.51, 244.51)
+scale = Vector2(2, 2)
+
+[node name="LPeg" type="Sprite2D" parent="."]
+texture = ExtResource("1_fqhem")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-22.2548, -22.7548, -17.2548, -27.2548, -12.2548, -30.2548, -6.75482, -31.7548, 0.245178, -31.7548, -0.254822, -22.7548, -6.75482, -22.2548, -11.2548, -20.2548, -15.7548, -16.2548)

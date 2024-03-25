@@ -1,0 +1,236 @@
+[gd_scene load_steps=20 format=3 uid="uid://c05wrm1tevnm6"]
+
+[ext_resource type="PackedScene" uid="uid://bbrxvw7ww1lbv" path="res://Peggle/scenes/Border.tscn" id="1_d7ovn"]
+[ext_resource type="Texture2D" uid="uid://bolpj0fb5p88s" path="res://Peggle/assests/pixil-layer-0.png" id="2_mqa1n"]
+[ext_resource type="Texture2D" uid="uid://ddm2uwbkmtga4" path="res://Peggle/assests/pixil-layer-1.png" id="3_kchl5"]
+[ext_resource type="Script" path="res://Peggle/scripts/followMouse.cs" id="4_vyeh0"]
+[ext_resource type="Script" path="res://Peggle/scripts/shoot.cs" id="5_khfw8"]
+[ext_resource type="PackedScene" uid="uid://5x4dw0hp5e" path="res://Peggle/scenes/ball_v_2.tscn" id="6_cdp6k"]
+[ext_resource type="Texture2D" uid="uid://dkufike7ifdit" path="res://Peggle/assests/bucket_back.png" id="7_ycuhq"]
+[ext_resource type="Texture2D" uid="uid://dc2by2dyyr5g4" path="res://Peggle/assests/bucket_front.png" id="8_bmff7"]
+[ext_resource type="Script" path="res://Peggle/scripts/bucketCounter.cs" id="9_84vka"]
+[ext_resource type="Script" path="res://Peggle/scripts/bucketMove.cs" id="10_aeyn8"]
+[ext_resource type="Texture2D" uid="uid://csrnqrc15qdro" path="res://Peggle/assests/ball.png" id="11_k2yia"]
+[ext_resource type="Script" path="res://Peggle/scripts/countString.cs" id="12_l18gf"]
+[ext_resource type="Script" path="res://Peggle/scripts/move.cs" id="13_sdg2f"]
+[ext_resource type="Script" path="res://Peggle/scripts/outBall.cs" id="14_op63d"]
+[ext_resource type="PackedScene" uid="uid://byv8noiv4fd2w" path="res://Peggle/scenes/peg_g.tscn" id="15_edb4p"]
+[ext_resource type="PackedScene" uid="uid://cur0ql738vhcm" path="res://Peggle/scenes/peg_l.tscn" id="16_sukif"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukkp1"]
+size = Vector2(24.2526, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbwnp"]
+size = Vector2(605, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7w8ff"]
+size = Vector2(27.5, 39)
+
+[node name="PeggleV2" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 1.0
+offset_top = -17.0
+offset_right = 607.0
+offset_bottom = 629.0
+color = Color(0.113725, 0.380392, 0.403922, 1)
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="Border" parent="Borders" instance=ExtResource("1_d7ovn")]
+position = Vector2(3, 22)
+
+[node name="Border2" parent="Borders" instance=ExtResource("1_d7ovn")]
+position = Vector2(573, 21)
+
+[node name="Border3" parent="Borders" instance=ExtResource("1_d7ovn")]
+position = Vector2(571, 1)
+rotation = 1.5708
+
+[node name="BallShooter" type="Sprite2D" parent="."]
+position = Vector2(296, 23)
+scale = Vector2(3.10938, 3.07812)
+texture = ExtResource("2_mqa1n")
+
+[node name="Sprite2D" type="Sprite2D" parent="BallShooter"]
+position = Vector2(-0.321606, 2.92386)
+scale = Vector2(0.76005, 0.732233)
+texture = ExtResource("3_kchl5")
+
+[node name="followMouse" type="Node" parent="BallShooter"]
+script = ExtResource("4_vyeh0")
+
+[node name="shoot" type="Node" parent="BallShooter"]
+script = ExtResource("5_khfw8")
+ball = ExtResource("6_cdp6k")
+
+[node name="Bucket" type="Sprite2D" parent="."]
+position = Vector2(304, 529)
+scale = Vector2(2.96875, 2.64062)
+texture = ExtResource("7_ycuhq")
+
+[node name="BucketFront" type="Sprite2D" parent="Bucket"]
+scale = Vector2(1.00008, 1.00014)
+texture = ExtResource("8_bmff7")
+
+[node name="Area2D" type="Area2D" parent="Bucket/BucketFront"]
+scale = Vector2(0.999916, 0.999856)
+script = ExtResource("9_84vka")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bucket/BucketFront/Area2D"]
+position = Vector2(3.27826e-06, 8.71005)
+shape = SubResource("RectangleShape2D_ukkp1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bucket"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bucket/StaticBody2D"]
+polygon = PackedVector2Array(17.8526, -3.40829, 24.5895, -6.81659, 16.8421, 23.858, 9.76842, 27.2663, 0.336845, 27.2663, -9.09473, 26.8876, -15.1579, 23.4793, -22.9053, -6.43788, -16.5053, -3.40829, -11.7895, 19.3136, -7.74737, 22.7219, 0.336845, 23.858, 8.7579, 23.4793, 12.8, 20.071)
+
+[node name="move" type="Node" parent="Bucket"]
+script = ExtResource("10_aeyn8")
+min = 102.0
+max = 497.0
+
+[node name="ball_image" type="Sprite2D" parent="."]
+position = Vector2(643, 50)
+texture = ExtResource("11_k2yia")
+
+[node name="Label" type="Label" parent="ball_image"]
+offset_left = 34.0
+offset_top = -30.0
+offset_right = 120.0
+offset_bottom = -7.0
+scale = Vector2(2.38, 2.38)
+text = "x 01"
+script = ExtResource("12_l18gf")
+
+[node name="ballV2" parent="." instance=ExtResource("6_cdp6k")]
+position = Vector2(294, 100)
+mass = 1.0
+
+[node name="move" type="Node" parent="ballV2"]
+script = ExtResource("13_sdg2f")
+
+[node name="Bottom" type="Area2D" parent="."]
+script = ExtResource("14_op63d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom"]
+position = Vector2(302, 637)
+shape = SubResource("RectangleShape2D_sbwnp")
+
+[node name="Bottom2" type="Area2D" parent="."]
+script = ExtResource("14_op63d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bottom2"]
+position = Vector2(16, 607)
+shape = SubResource("RectangleShape2D_7w8ff")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Bottom2"]
+position = Vector2(587, 607)
+shape = SubResource("RectangleShape2D_7w8ff")
+
+[node name="Peg_G" parent="." instance=ExtResource("15_edb4p")]
+position = Vector2(212, 232)
+
+[node name="peg_l" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(476, 381)
+rotation = -4.36158
+
+[node name="peg_l5" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(126, 226)
+rotation = -2.71922
+
+[node name="peg_l7" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(126, 226)
+rotation = -1.89892
+
+[node name="peg_l13" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(126, 226)
+rotation = -1.07861
+
+[node name="peg_l9" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(165, 326)
+rotation = -4.97244
+
+[node name="peg_l10" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(165, 326)
+rotation = -5.80846
+
+[node name="peg_l15" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(367, 341)
+rotation = -5.80846
+
+[node name="peg_l2" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(477, 381)
+rotation = -2.66686
+
+[node name="peg_l3" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(477, 381)
+rotation = -1.80293
+
+[node name="peg_l4" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(477, 392)
+rotation = -0.753982
+
+[node name="peg_l6" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(416, 245)
+rotation = -2.70875
+
+[node name="peg_l8" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(416, 245)
+rotation = -3.52906
+
+[node name="peg_l14" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(417, 244)
+rotation = -4.34238
+
+[node name="peg_l11" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(270, 299)
+rotation = -1.83783
+
+[node name="peg_l17" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(270, 299)
+rotation = -2.67559
+
+[node name="peg_l18" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(270, 299)
+rotation = -3.49589
+
+[node name="peg_l16" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(477, 381)
+rotation = -3.51509
+
+[node name="peg_l12" parent="." instance=ExtResource("16_sukif")]
+position = Vector2(371, 340)
+rotation = -0.411898
+
+[node name="Peg_G2" parent="." instance=ExtResource("15_edb4p")]
+position = Vector2(128, 225)
+
+[node name="Peg_G3" parent="." instance=ExtResource("15_edb4p")]
+position = Vector2(272, 297)
+
+[node name="Peg_G4" parent="." instance=ExtResource("15_edb4p")]
+position = Vector2(418, 245)
+
+[node name="Peg_G5" parent="." instance=ExtResource("15_edb4p")]
+position = Vector2(479, 385)
+
+[node name="Peg_G6" parent="." instance=ExtResource("15_edb4p")]
+position = Vector2(334, 228)
+
+[node name="Peg_G7" parent="." instance=ExtResource("15_edb4p")]
+position = Vector2(142, 369)
+
+[node name="Peg_G8" parent="." instance=ExtResource("15_edb4p")]
+position = Vector2(526, 256)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+offset_left = -73.0
+offset_top = -13.0
+offset_right = 689.0
+offset_bottom = -2.0
+
+[connection signal="body_entered" from="Bucket/BucketFront/Area2D" to="Bucket/BucketFront/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Bottom" to="Bottom" method="_on_body_entered"]
+[connection signal="body_entered" from="Bottom2" to="Bottom2" method="_on_body_entered"]

@@ -1,10 +1,8 @@
 using Godot;
 using System;
 
-public partial class Border : StaticBody2D
+public partial class bucketCounter : Area2D
 {
-	[Export]
-	public Color color = new Color(192,192,192);
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
@@ -13,6 +11,13 @@ public partial class Border : StaticBody2D
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		GetNode<ColorRect>("ColorRect").Modulate = color;
+	}
+
+	public void _on_body_entered(Node body){
+		countBall.count.AddBall();
+
+		this.GetTree().Root.RemoveChild(body);
+		body.Dispose();
+		GD.Print("bucket");
 	}
 }

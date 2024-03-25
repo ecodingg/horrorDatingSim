@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ddm2uwbkmtga4"
-path="res://.godot/imported/pixil-layer-1.png-575cf0c223c6ddf1a1f0ad58c3550e72.ctex"
+uid="uid://csrnqrc15qdro"
+path="res://.godot/imported/ball.png-7207bc2fa2ef4d2616c269523f75317c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Peggle/PeggleV2/pixil-layer-1.png"
-dest_files=["res://.godot/imported/pixil-layer-1.png-575cf0c223c6ddf1a1f0ad58c3550e72.ctex"]
+source_file="res://Peggle/assests/ball.png"
+dest_files=["res://.godot/imported/ball.png-7207bc2fa2ef4d2616c269523f75317c.ctex"]
 
 [params]
 

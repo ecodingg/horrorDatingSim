@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dinw7pi4ow07o"
-path="res://.godot/imported/bucket.png-ec2f02c33338c00a66b18bd1fc2550bb.ctex"
+uid="uid://dkufike7ifdit"
+path="res://.godot/imported/bucket_back.png-87f820ad36b50c752462ad731f559415.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Peggle/PeggleV2/bucket.png"
-dest_files=["res://.godot/imported/bucket.png-ec2f02c33338c00a66b18bd1fc2550bb.ctex"]
+source_file="res://Peggle/assests/bucket_back.png"
+dest_files=["res://.godot/imported/bucket_back.png-87f820ad36b50c752462ad731f559415.ctex"]
 
 [params]
 
