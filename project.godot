@@ -23,6 +23,11 @@ DialogueManager="*res://addons/dialogue_manager/dialogue_manager.gd"
 
 general/balloon_path="res://Scripts/Dialogue/Balloon.tscn"
 
+[display]
+
+window/size/mode=2
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Horror Dating Sim"
