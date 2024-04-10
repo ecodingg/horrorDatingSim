@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbbra6rweo2g3"]
+[gd_scene load_steps=7 format=3 uid="uid://dbbra6rweo2g3"]
 
 [ext_resource type="Texture2D" uid="uid://tao18n3a5fh3" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="2_rgoo8"]
 [ext_resource type="PackedScene" uid="uid://dr02pun6jmevv" path="res://Scenes/Objects/Egg.tscn" id="3_vf4ov"]
+[ext_resource type="Resource" uid="uid://bn70ok7osnnlg" path="res://Scripts/Dialogue/test.dialogue" id="4_p0lec"]
 [ext_resource type="PackedScene" uid="uid://becx7csw0b07r" path="res://Scenes/Objects/Actionable.tscn" id="4_pf4no"]
 [ext_resource type="PackedScene" uid="uid://dlwsepgw033y2" path="res://Scenes/Characters/skinwalker.tscn" id="5_h2516"]
 
@@ -22,6 +23,7 @@ texture = ExtResource("2_rgoo8")
 position = Vector2(-409, -406)
 
 [node name="Actionable" parent="Egg" instance=ExtResource("4_pf4no")]
+DialogueResource = ExtResource("4_p0lec")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Egg/Actionable"]
 position = Vector2(13, 2)
