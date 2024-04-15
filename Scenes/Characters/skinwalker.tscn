@@ -1,6 +1,6 @@
-[gd_scene load_steps=27 format=3 uid="uid://dlwsepgw033y2"]
+[gd_scene load_steps=22 format=3 uid="uid://dlwsepgw033y2"]
 
-[ext_resource type="Script" path="res://Scripts/Player/skinwalker.cs" id="1_c862i"]
+[ext_resource type="Script" path="res://Scripts/skinwalker.cs" id="1_c862i"]
 [ext_resource type="Texture2D" uid="uid://125l6l8pxu1m" path="res://Art/SkinwalkerTestSpriteSheet.png" id="2_clj8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt47s"]
@@ -115,35 +115,6 @@ _data = {
 "up": SubResource("Animation_h7x8p")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yitu4"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_xws2w"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v4ydr"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2j47l"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oxw1c"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_a5p7l"]
-auto_triangles = false
-blend_point_0/node = SubResource("AnimationNodeAnimation_yitu4")
-blend_point_0/pos = Vector2(0, 1)
-blend_point_1/node = SubResource("AnimationNodeStateMachine_xws2w")
-blend_point_1/pos = Vector2(0, 0)
-blend_point_2/node = SubResource("AnimationNodeAnimation_v4ydr")
-blend_point_2/pos = Vector2(-1, 0)
-blend_point_3/node = SubResource("AnimationNodeAnimation_2j47l")
-blend_point_3/pos = Vector2(0, -1)
-blend_point_4/node = SubResource("AnimationNodeAnimation_oxw1c")
-blend_point_4/pos = Vector2(1, 0)
-triangles = PackedInt32Array(0, 1, 2, 1, 2, 3, 1, 3, 4, 0, 1, 4)
-sync = true
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jl5ka"]
 animation = &"up"
 
@@ -168,20 +139,23 @@ blend_point_3/pos = Vector2(-1, 0)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_r713i"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aydio"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_fv2ln"]
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c24o6"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ywcm1"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_oy8ue"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pbeqr"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ht6dx"]
-states/Idle/node = SubResource("AnimationNodeBlendSpace2D_a5p7l")
-states/Idle/position = Vector2(311, 94)
 states/Start/position = Vector2(110, 108.417)
 states/Walk/node = SubResource("AnimationNodeBlendSpace2D_7uds4")
 states/Walk/position = Vector2(573, 99.9844)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_r713i"), "Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_c24o6"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_oy8ue")]
+states/idle/node = SubResource("AnimationNodeAnimation_aydio")
+states/idle/position = Vector2(332.667, 108.667)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fv2ln"), "idle", "Walk", SubResource("AnimationNodeStateMachineTransition_ywcm1"), "Walk", "idle", SubResource("AnimationNodeStateMachineTransition_pbeqr")]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpqri"]
 
@@ -208,7 +182,6 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_ht6dx")
 anim_player = NodePath("../AnimationPlayer")
-parameters/Idle/blend_position = Vector2(-0.00160003, 0.026455)
 parameters/Walk/blend_position = Vector2(0, 0)
 
 [node name="Marker2D" type="Marker2D" parent="."]
