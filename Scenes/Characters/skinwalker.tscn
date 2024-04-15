@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://125l6l8pxu1m" path="res://Art/SkinwalkerTestSpriteSheet.png" id="2_clj8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt47s"]
-size = Vector2(10, 16)
+size = Vector2(17, 24)
 
 [sub_resource type="Animation" id="Animation_6gyj1"]
 length = 0.001
@@ -40,6 +40,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_1yyjh"]
 resource_name = "idle"
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -158,6 +159,7 @@ states/idle/position = Vector2(332.667, 108.667)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fv2ln"), "idle", "Walk", SubResource("AnimationNodeStateMachineTransition_ywcm1"), "Walk", "idle", SubResource("AnimationNodeStateMachineTransition_pbeqr")]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kpqri"]
+radius = 20.0
 
 [node name="PlayerCat" type="CharacterBody2D"]
 script = ExtResource("1_c862i")
@@ -169,6 +171,7 @@ hframes = 4
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_lt47s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
