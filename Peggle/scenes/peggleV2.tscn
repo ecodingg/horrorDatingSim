@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c05wrm1tevnm6"]
+[gd_scene load_steps=21 format=3 uid="uid://c05wrm1tevnm6"]
 
 [ext_resource type="PackedScene" uid="uid://bbrxvw7ww1lbv" path="res://Peggle/scenes/Border.tscn" id="1_d7ovn"]
 [ext_resource type="Texture2D" uid="uid://bolpj0fb5p88s" path="res://Peggle/assests/pixil-layer-0.png" id="2_mqa1n"]
@@ -12,7 +12,8 @@
 [ext_resource type="Script" path="res://Peggle/scripts/bucketMove.cs" id="10_aeyn8"]
 [ext_resource type="Texture2D" uid="uid://csrnqrc15qdro" path="res://Peggle/assests/ball.png" id="11_k2yia"]
 [ext_resource type="Script" path="res://Peggle/scripts/countString.cs" id="12_l18gf"]
-[ext_resource type="Script" path="res://Peggle/scripts/move.cs" id="13_sdg2f"]
+[ext_resource type="Texture2D" uid="uid://dogornghfrgo7" path="res://Peggle/assests/l_peg.png" id="13_mw8h8"]
+[ext_resource type="Script" path="res://Peggle/platformCount.cs" id="14_3wtdt"]
 [ext_resource type="Script" path="res://Peggle/scripts/outBall.cs" id="14_op63d"]
 [ext_resource type="PackedScene" uid="uid://byv8noiv4fd2w" path="res://Peggle/scenes/peg_g.tscn" id="15_edb4p"]
 [ext_resource type="PackedScene" uid="uid://cur0ql738vhcm" path="res://Peggle/scenes/peg_l.tscn" id="16_sukif"]
@@ -44,11 +45,11 @@ position = Vector2(3, 22)
 position = Vector2(573, 21)
 
 [node name="Border3" parent="Borders" instance=ExtResource("1_d7ovn")]
-position = Vector2(571, 1)
+position = Vector2(550, 0)
 rotation = 1.5708
 
 [node name="BallShooter" type="Sprite2D" parent="."]
-position = Vector2(296, 23)
+position = Vector2(296, 38)
 scale = Vector2(3.10938, 3.07812)
 texture = ExtResource("2_mqa1n")
 
@@ -63,6 +64,7 @@ script = ExtResource("4_vyeh0")
 [node name="shoot" type="Node" parent="BallShooter"]
 script = ExtResource("5_khfw8")
 ball = ExtResource("6_cdp6k")
+offset = 2.08165e-12
 
 [node name="Bucket" type="Sprite2D" parent="."]
 position = Vector2(304, 529)
@@ -91,11 +93,11 @@ script = ExtResource("10_aeyn8")
 min = 102.0
 max = 497.0
 
-[node name="ball_image" type="Sprite2D" parent="."]
+[node name="BallUI" type="Sprite2D" parent="."]
 position = Vector2(643, 50)
 texture = ExtResource("11_k2yia")
 
-[node name="Label" type="Label" parent="ball_image"]
+[node name="BallCountStr" type="Label" parent="BallUI"]
 offset_left = 34.0
 offset_top = -30.0
 offset_right = 120.0
@@ -104,12 +106,19 @@ scale = Vector2(2.38, 2.38)
 text = "x 01"
 script = ExtResource("12_l18gf")
 
-[node name="ballV2" parent="." instance=ExtResource("6_cdp6k")]
-position = Vector2(294, 100)
-mass = 1.0
+[node name="PlatformUI" type="Sprite2D" parent="."]
+position = Vector2(666, 195)
+scale = Vector2(2, 2)
+texture = ExtResource("13_mw8h8")
 
-[node name="move" type="Node" parent="ballV2"]
-script = ExtResource("13_sdg2f")
+[node name="PlatformCountStr" type="Label" parent="PlatformUI"]
+offset_left = 8.0
+offset_top = -35.0
+offset_right = 94.0
+offset_bottom = -12.0
+text = "x 26"
+script = ExtResource("14_3wtdt")
+metadata/_edit_use_anchors_ = true
 
 [node name="Bottom" type="Area2D" parent="."]
 script = ExtResource("14_op63d")
@@ -226,10 +235,82 @@ position = Vector2(142, 369)
 position = Vector2(526, 256)
 
 [node name="ColorRect2" type="ColorRect" parent="."]
-offset_left = -73.0
-offset_top = -13.0
-offset_right = 689.0
-offset_bottom = -2.0
+offset_left = -72.0
+offset_top = -98.0
+offset_right = 690.0
+offset_bottom = -87.0
+
+[node name="WinOrLoseUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WinUI" type="Control" parent="WinOrLoseUI"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="WinLabel" type="Label" parent="WinOrLoseUI/WinUI"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 150.0
+offset_right = 484.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(0.0666667, 1, 0, 1)
+theme_override_font_sizes/font_size = 73
+text = "You Win! "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Continue" type="Button" parent="WinOrLoseUI/WinUI"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 277.0
+offset_right = 353.0
+offset_bottom = 322.0
+theme_override_colors/icon_hover_color = Color(0, 0.192157, 0.4, 1)
+text = "continue?"
+icon_alignment = 1
+
+[node name="Quit" type="Button" parent="WinOrLoseUI/WinUI"]
+layout_mode = 0
+offset_left = 239.0
+offset_top = 338.0
+offset_right = 356.0
+offset_bottom = 383.0
+theme_override_colors/icon_hover_color = Color(0, 0.192157, 0.4, 1)
+text = "quit to menu"
+icon_alignment = 1
+
+[node name="LoseUI" type="Control" parent="WinOrLoseUI"]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LoseLabel" type="Label" parent="WinOrLoseUI/LoseUI"]
+layout_mode = 0
+offset_left = 139.0
+offset_top = 150.0
+offset_right = 484.0
+offset_bottom = 288.0
+theme_override_colors/font_color = Color(0.921569, 0, 0, 1)
+theme_override_font_sizes/font_size = 73
+text = "You Lose! "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TryAgain" type="Button" parent="WinOrLoseUI/LoseUI"]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 277.0
+offset_right = 353.0
+offset_bottom = 322.0
+theme_override_colors/icon_hover_color = Color(0, 0.192157, 0.4, 1)
+text = "try again"
+icon_alignment = 1
 
 [connection signal="body_entered" from="Bucket/BucketFront/Area2D" to="Bucket/BucketFront/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Bottom" to="Bottom" method="_on_body_entered"]

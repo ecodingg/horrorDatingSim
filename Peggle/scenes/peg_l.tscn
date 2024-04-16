@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cur0ql738vhcm"]
+[gd_scene load_steps=4 format=3 uid="uid://cur0ql738vhcm"]
 
 [ext_resource type="Texture2D" uid="uid://dogornghfrgo7" path="res://Peggle/assests/l_peg.png" id="1_fqhem"]
+[ext_resource type="Script" path="res://Peggle/scripts/pegDestroy.cs" id="2_xxmfc"]
+[ext_resource type="Script" path="res://Peggle/scripts/lPlatformCount.cs" id="3_nst0r"]
 
 [node name="peg_l" type="CharacterBody2D"]
 position = Vector2(688.51, 244.51)
@@ -11,3 +13,14 @@ texture = ExtResource("1_fqhem")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-22.2548, -22.7548, -17.2548, -27.2548, -12.2548, -30.2548, -6.75482, -31.7548, 0.245178, -31.7548, -0.254822, -22.7548, -6.75482, -22.2548, -11.2548, -20.2548, -15.7548, -16.2548)
+
+[node name="pegDestroy" type="Node" parent="."]
+script = ExtResource("2_xxmfc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-22.2548, -22.7548, -17.2548, -27.2548, -12.2548, -30.2548, -6.75482, -31.7548, 0.245178, -31.7548, -0.254822, -22.7548, -6.75482, -22.2548, -11.2548, -20.2548, -15.7548, -16.2548)
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("3_nst0r")
