@@ -7,29 +7,53 @@ using Helpers;
 
 public partial class skinwalker : CharacterBody2D
 {
-	[Export]
-	public float move_speed = 100;
+	[Export] public float MoveSpeed = 300;
 
-	[Export]
-	public Vector2 starting_direction = new Vector2(0, 0);
+	private AnimationTree animationTree;
+	private AnimationNodeStateMachinePlayback stateMachine;
+	private Area2D actionableFinder;
 
-	private AnimationTree animation_tree;
-	Area2D actionableFinder;
-	Vector2 inputVector = Vector2.Zero;
+	private Vector2 inputVector = Vector2.Zero;
+	private Vector2 lastDirection = new Vector2(0, -1);
 
 	public override void _Ready()
 	{
-		animation_tree = GetNode<AnimationTree>("AnimationTree");
-		animation_tree.Set("parameters/Idle/blend_position", starting_direction);
+		animationTree = GetNode<AnimationTree>("AnimationTree");
+		stateMachine = (AnimationNodeStateMachinePlayback)animationTree.Get("parameters/playback");
+
+		actionableFinder = GetNode<Area2D>("ActionableFinder");
 	}
 
 	public override void _PhysicsProcess(double delta)
 	{
-		Vector2 input_direction = new Vector2(
+		// Read input for movement
+		inputVector = new Vector2(
 			Input.GetActionStrength("right") - Input.GetActionStrength("left"),
 			Input.GetActionStrength("down") - Input.GetActionStrength("up")
 		);
-		Velocity = input_direction * move_speed;
+
+		// Transition between Idle and Walk based on movement
+		if (inputVector != Vector2.Zero)
+		{
+			// Normalize to avoid faster diagonal speed
+			inputVector = inputVector.Normalized();
+
+			// Update last direction when moving
+			lastDirection = inputVector;
+			
+			// Set to "Walk" state and update blend position
+			stateMachine.Travel("Walk"); // Transition to Walk state
+			animationTree.Set("parameters/Walk/blend_position", lastDirection);
+			Velocity = inputVector.Normalized() * MoveSpeed;
+		}
+		else
+		{
+			// Set to "Idle" state if no movement
+			stateMachine.Travel("Idle");
+			animationTree.Set("parameters/Idle/blend_position", lastDirection);
+			Velocity = Vector2.Zero;
+		}
+
 		MoveAndSlide();
 	}
 
@@ -37,15 +61,12 @@ public partial class skinwalker : CharacterBody2D
 	{
 		if (Input.IsActionJustPressed("interact"))
 		{
-			Array<Area2D> actionables = actionableFinder.GetOverlappingAreas();
+			var actionables = actionableFinder.GetOverlappingAreas();
 			if (actionables.Count > 0)
 			{
-				(actionables[0] as Actionable).Action();
-				inputVector = Vector2.Zero;
+				var actionable = actionables[0] as Actionable;
+				actionable?.Action();
 			}
 		}
-
-		inputVector = Input.GetVector("left", "right", "up", "down");
 	}
-
 }
