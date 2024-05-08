@@ -1,13 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://dbbra6rweo2g3"]
+[gd_scene load_steps=4 format=3 uid="uid://dbbra6rweo2g3"]
 
 [ext_resource type="Texture2D" uid="uid://tao18n3a5fh3" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="2_rgoo8"]
-[ext_resource type="PackedScene" uid="uid://dr02pun6jmevv" path="res://Scenes/Objects/Egg.tscn" id="3_vf4ov"]
-[ext_resource type="PackedScene" uid="uid://becx7csw0b07r" path="res://Scenes/Objects/Actionable.tscn" id="4_pf4no"]
+[ext_resource type="PackedScene" uid="uid://cujmcb62kt0vl" path="res://Scenes/Objects/Dialogue_Interactable.tscn" id="3_krwrj"]
 [ext_resource type="PackedScene" uid="uid://dlwsepgw033y2" path="res://Scenes/Characters/skinwalker.tscn" id="5_h2516"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4jloq"]
-
-[node name="Node2D" type="Node2D"]
+[node name="TestScene" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-171, -399)
@@ -18,15 +15,9 @@ position = Vector2(-165, -433)
 scale = Vector2(13.9688, 32.125)
 texture = ExtResource("2_rgoo8")
 
-[node name="Egg" parent="." instance=ExtResource("3_vf4ov")]
-position = Vector2(-409, -406)
-
-[node name="Actionable" parent="Egg" instance=ExtResource("4_pf4no")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Egg/Actionable"]
-position = Vector2(13, 2)
-scale = Vector2(2, 2)
-shape = SubResource("CircleShape2D_4jloq")
+[node name="dialogue_interactable" parent="." instance=ExtResource("3_krwrj")]
+position = Vector2(-172, -293)
+scale = Vector2(6.01272, 6.01272)
 
 [node name="PlayerCat" parent="." instance=ExtResource("5_h2516")]
 position = Vector2(-171, -399)

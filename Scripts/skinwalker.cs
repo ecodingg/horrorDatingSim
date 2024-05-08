@@ -11,7 +11,7 @@ public partial class skinwalker : CharacterBody2D
 
 	private AnimationTree animationTree;
 	private AnimationNodeStateMachinePlayback stateMachine;
-	private Area2D actionableFinder;
+	//private Area2D actionableFinder;
 
 	private Vector2 inputVector = Vector2.Zero;
 	private Vector2 lastDirection = new Vector2(0, -1);
@@ -21,7 +21,7 @@ public partial class skinwalker : CharacterBody2D
 		animationTree = GetNode<AnimationTree>("AnimationTree");
 		stateMachine = (AnimationNodeStateMachinePlayback)animationTree.Get("parameters/playback");
 
-		actionableFinder = GetNode<Area2D>("ActionableFinder");
+		//actionableFinder = GetNode<Area2D>("ActionableFinder");
 	}
 
 	public override void _PhysicsProcess(double delta)
@@ -57,16 +57,19 @@ public partial class skinwalker : CharacterBody2D
 		MoveAndSlide();
 	}
 
-	public override void _UnhandledInput(InputEvent @event)
+/*
+	private void HandleInteract()
 	{
-		if (Input.IsActionJustPressed("interact"))
+		var overlappingAreas = actionableFinder.GetOverlappingAreas();
+		
+		foreach(var area in overlappingAreas)
 		{
-			var actionables = actionableFinder.GetOverlappingAreas();
-			if (actionables.Count > 0)
+			var actionable = area as Actionable;
+			if(actionable != null)
 			{
-				var actionable = actionables[0] as Actionable;
-				actionable?.Action();
+				//GD.Print("Interacted");
 			}
 		}
 	}
+	*/
 }

@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cujmcb62kt0vl"]
+
+[ext_resource type="Script" path="res://Scenes/Objects/Dialogue_Interactable.cs" id="1_kco61"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw3a0"]
+
+[node name="dialogue_interactable" type="Area2D"]
+script = ExtResource("1_kco61")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_mw3a0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
