@@ -1,16 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://dbbra6rweo2g3"]
+[gd_scene load_steps=6 format=3 uid="uid://dbbra6rweo2g3"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/test_scene.cs" id="1_lxfho"]
 [ext_resource type="Texture2D" uid="uid://tao18n3a5fh3" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="2_rgoo8"]
 [ext_resource type="PackedScene" uid="uid://cujmcb62kt0vl" path="res://Scenes/Objects/Dialogue_Interactable.tscn" id="3_krwrj"]
-[ext_resource type="PackedScene" uid="uid://dlwsepgw033y2" path="res://Scenes/Characters/skinwalker.tscn" id="5_h2516"]
+[ext_resource type="PackedScene" uid="uid://ddwbicramannd" path="res://Scenes/Characters/mc.tscn" id="5_50wn7"]
+[ext_resource type="PackedScene" uid="uid://b1ntmy3bcque7" path="res://Scenes/Characters/hash.tscn" id="5_vvr21"]
 
 [node name="TestScene" type="Node2D"]
 script = ExtResource("1_lxfho")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(-171, -399)
-scale = Vector2(2, 2)
 
 [node name="Water" type="Sprite2D" parent="."]
 position = Vector2(-165, -433)
@@ -18,14 +15,19 @@ scale = Vector2(13.9688, 32.125)
 texture = ExtResource("2_rgoo8")
 
 [node name="dialogue_interactable" parent="." instance=ExtResource("3_krwrj")]
-position = Vector2(-551, -239)
-scale = Vector2(6.01272, 6.01272)
+position = Vector2(-551, -241)
+scale = Vector2(3.73444, 3.73444)
 
-[node name="PlayerCat" parent="." instance=ExtResource("5_h2516")]
+[node name="MC" parent="." instance=ExtResource("5_50wn7")]
 position = Vector2(-171, -399)
 scale = Vector2(2, 2)
 
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerCat"]
-remote_path = NodePath("../../Camera2D")
+[node name="Camera2D" type="Camera2D" parent="MC"]
+scale = Vector2(2, 2)
+
+[node name="Hash" parent="." instance=ExtResource("5_vvr21")]
+position = Vector2(-552, -241)
+scale = Vector2(2, 2)
+script = null
 
 [connection signal="DialogueTrigger" from="dialogue_interactable" to="." method="_on_dialogue_interactable_dialogue_trigger"]

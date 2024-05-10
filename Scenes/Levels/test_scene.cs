@@ -5,19 +5,19 @@ using DialogueManagerRuntime;
 public partial class test_scene : Node2D
 {
 	bool dialogueActive;
-	private CharacterBody2D _playerCat;
+	private CharacterBody2D _MC;
 	
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
-		_playerCat = GetNode<CharacterBody2D>("PlayerCat"); //refer to player node
+		_MC = GetNode<CharacterBody2D>("MC"); //refer to player node
 		dialogueActive = false;
 	}
 
 	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
 	{
-		GD.Print(_playerCat);
+		//GD.Print(_MC);
 		//dialogue is active means player won't move
 		if(dialogueActive)
 		{
