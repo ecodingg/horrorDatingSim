@@ -29,5 +29,3 @@ scale = Vector2(2, 2)
 position = Vector2(-552, -241)
 scale = Vector2(2, 2)
 script = null
-
-[connection signal="DialogueTrigger" from="dialogue_interactable" to="." method="_on_dialogue_interactable_dialogue_trigger"]

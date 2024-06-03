@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://dlwsepgw033y2"]
 
-[ext_resource type="Script" path="res://Scripts/skinwalker.cs" id="1_c862i"]
+[ext_resource type="Script" path="res://Scripts/Character/skinwalker.cs" id="1_c862i"]
 [ext_resource type="Texture2D" uid="uid://125l6l8pxu1m" path="res://Art/SkinwalkerTestSpriteSheet.png" id="2_clj8i"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt47s"]

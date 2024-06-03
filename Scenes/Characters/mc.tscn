@@ -1,6 +1,6 @@
 [gd_scene load_steps=29 format=3 uid="uid://ddwbicramannd"]
 
-[ext_resource type="Script" path="res://Scripts/skinwalker.cs" id="1_utnhl"]
+[ext_resource type="Script" path="res://Scripts/Character/skinwalker.cs" id="1_utnhl"]
 [ext_resource type="Texture2D" uid="uid://b5yndit2kgmi5" path="res://Art/MC.png" id="2_opbkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt47s"]
