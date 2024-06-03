@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dbbra6rweo2g3"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/test_scene.cs" id="1_lxfho"]
-[ext_resource type="Texture2D" uid="uid://tao18n3a5fh3" path="res://Art/Sprout Lands - Sprites - Basic pack/Tilesets/Water.png" id="2_rgoo8"]
+[ext_resource type="Texture2D" uid="uid://d2xi60a32fq6" path="res://Art/overworld 1.jpeg" id="2_30rl3"]
 [ext_resource type="PackedScene" uid="uid://cujmcb62kt0vl" path="res://Scenes/Objects/Dialogue_Interactable.tscn" id="3_krwrj"]
 [ext_resource type="PackedScene" uid="uid://ddwbicramannd" path="res://Scenes/Characters/mc.tscn" id="5_50wn7"]
 [ext_resource type="PackedScene" uid="uid://b1ntmy3bcque7" path="res://Scenes/Characters/hash.tscn" id="5_vvr21"]
@@ -10,9 +10,7 @@
 script = ExtResource("1_lxfho")
 
 [node name="Water" type="Sprite2D" parent="."]
-position = Vector2(-165, -433)
-scale = Vector2(13.9688, 32.125)
-texture = ExtResource("2_rgoo8")
+texture = ExtResource("2_30rl3")
 
 [node name="dialogue_interactable" parent="." instance=ExtResource("3_krwrj")]
 position = Vector2(-551, -241)
