@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://b5yndit2kgmi5" path="res://Art/MC.png" id="2_opbkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lt47s"]
-size = Vector2(17, 24)
+size = Vector2(15.2682, 21.1406)
 
 [sub_resource type="Animation" id="Animation_6gyj1"]
 length = 0.001
@@ -246,7 +246,8 @@ hframes = 4
 vframes = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(-0.499999, 3)
+scale = Vector2(0.851443, 0.851443)
 shape = SubResource("RectangleShape2D_lt47s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
