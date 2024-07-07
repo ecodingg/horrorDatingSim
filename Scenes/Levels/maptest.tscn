@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu1opgy5idtda"]
+
+[ext_resource type="PackedScene" uid="uid://ddwbicramannd" path="res://Scenes/Characters/mc.tscn" id="1_7bs0s"]
+[ext_resource type="Texture2D" uid="uid://ct1g44viq8mei" path="res://Art/ME_Theme_Sorter_32x32/overworld 1.png" id="2_6123v"]
+
+[node name="maptest" type="Node2D"]
+
+[node name="MC" parent="." instance=ExtResource("1_7bs0s")]
+z_index = 2
+position = Vector2(1283, 1048)
+scale = Vector2(1.21507, 1.21507)
+
+[node name="Camera2D" type="Camera2D" parent="MC"]
+zoom = Vector2(2, 2)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_6123v")
