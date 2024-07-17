@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bu1opgy5idtda"]
+[gd_scene load_steps=4 format=3 uid="uid://bu1opgy5idtda"]
 
 [ext_resource type="PackedScene" uid="uid://ddwbicramannd" path="res://Scenes/Characters/mc.tscn" id="1_7bs0s"]
 [ext_resource type="Texture2D" uid="uid://ct1g44viq8mei" path="res://Art/ME_Theme_Sorter_32x32/overworld 1.png" id="2_6123v"]
+[ext_resource type="Texture2D" uid="uid://qjpdnb8wr03e" path="res://Art/TestBuilding.png" id="3_fwbu0"]
 
 [node name="maptest" type="Node2D"]
 
 [node name="MC" parent="." instance=ExtResource("1_7bs0s")]
+visibility_layer = 2
 z_index = 2
 position = Vector2(1283, 1048)
 scale = Vector2(1.21507, 1.21507)
@@ -14,6 +16,14 @@ scale = Vector2(1.21507, 1.21507)
 zoom = Vector2(2, 2)
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
+visibility_layer = 2
+offset_left = -530.0
+offset_top = 394.0
+offset_right = 3133.0
+offset_bottom = 2832.0
 texture = ExtResource("2_6123v")
+
+[node name="TestBuilding" type="Sprite2D" parent="."]
+top_level = true
+position = Vector2(1467, 1740)
+texture = ExtResource("3_fwbu0")
