@@ -7,7 +7,7 @@ using Helpers;
 
 public partial class skinwalker : CharacterBody2D
 {
-	[Export] public float MoveSpeed = 300;
+	[Export] public float MoveSpeed = 200;
 
 	private AnimationTree animationTree;
 	private AnimationNodeStateMachinePlayback stateMachine;

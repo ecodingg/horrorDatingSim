@@ -9,11 +9,19 @@
 [node name="MC" parent="." instance=ExtResource("1_7bs0s")]
 visibility_layer = 2
 z_index = 2
-position = Vector2(1283, 1048)
+position = Vector2(2041, 1977)
 scale = Vector2(1.21507, 1.21507)
 
 [node name="Camera2D" type="Camera2D" parent="MC"]
 zoom = Vector2(2, 2)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+top_level = true
+offset_left = 1404.0
+offset_top = 1654.0
+offset_right = 1531.0
+offset_bottom = 1837.0
+texture = ExtResource("3_fwbu0")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 visibility_layer = 2
@@ -22,8 +30,3 @@ offset_top = 394.0
 offset_right = 3133.0
 offset_bottom = 2832.0
 texture = ExtResource("2_6123v")
-
-[node name="TestBuilding" type="Sprite2D" parent="."]
-top_level = true
-position = Vector2(1467, 1740)
-texture = ExtResource("3_fwbu0")
