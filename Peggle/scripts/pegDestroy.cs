@@ -8,7 +8,7 @@ public partial class pegDestroy : Node
    public double timeToDestroy = 3.0f;
    private double timeCount = 0f;
    private bool on = false;
-//    public static int waitDestroy = 0;
+   public static int waitDestroy = 0;
 
 
 
@@ -62,8 +62,8 @@ public partial class pegDestroy : Node
         {
             on = true;
             GetParent().GetChild<Sprite2D>(0).Modulate = new Color(0.5f, 0.5f, 0.5f);
-            // onBallCount.countChange += ballCountChange;
-            // waitDestroy++;
+            onBallCount.countChange += ballCountChange;
+            waitDestroy++;
 
         }
     }
@@ -71,7 +71,7 @@ public partial class pegDestroy : Node
 
    private void _on_exited()
    {
-    //    waitDestroy--;
-    //    onBallCount.countChange -= ballCountChange;
+       waitDestroy--;
+       onBallCount.countChange -= ballCountChange;
    }
 }

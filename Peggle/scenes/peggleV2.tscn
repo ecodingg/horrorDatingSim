@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c05wrm1tevnm6"]
+[gd_scene load_steps=22 format=3 uid="uid://c05wrm1tevnm6"]
 
 [ext_resource type="PackedScene" uid="uid://bbrxvw7ww1lbv" path="res://Peggle/scenes/Border.tscn" id="1_d7ovn"]
 [ext_resource type="Texture2D" uid="uid://bolpj0fb5p88s" path="res://Peggle/assests/pixil-layer-0.png" id="2_mqa1n"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" path="res://Peggle/scripts/outBall.cs" id="14_op63d"]
 [ext_resource type="PackedScene" uid="uid://byv8noiv4fd2w" path="res://Peggle/scenes/peg_g.tscn" id="15_edb4p"]
 [ext_resource type="PackedScene" uid="uid://cur0ql738vhcm" path="res://Peggle/scenes/peg_l.tscn" id="16_sukif"]
+[ext_resource type="Script" path="res://Peggle/scripts/WinLose.cs" id="18_0t58q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukkp1"]
 size = Vector2(24.2526, 20)
@@ -64,7 +65,10 @@ script = ExtResource("4_vyeh0")
 [node name="shoot" type="Node" parent="BallShooter"]
 script = ExtResource("5_khfw8")
 ball = ExtResource("6_cdp6k")
-offset = 2.08165e-12
+
+[node name="Shoot Offset" type="Sprite2D" parent="BallShooter/shoot"]
+position = Vector2(296, 114.953)
+scale = Vector2(3.10938, 3.07812)
 
 [node name="Bucket" type="Sprite2D" parent="."]
 position = Vector2(304, 529)
@@ -245,6 +249,9 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("18_0t58q")
+WinRef = NodePath("WinUI")
+LoseRef = NodePath("LoseUI")
 
 [node name="WinUI" type="Control" parent="WinOrLoseUI"]
 visible = false
@@ -315,3 +322,4 @@ icon_alignment = 1
 [connection signal="body_entered" from="Bucket/BucketFront/Area2D" to="Bucket/BucketFront/Area2D" method="_on_body_entered"]
 [connection signal="body_entered" from="Bottom" to="Bottom" method="_on_body_entered"]
 [connection signal="body_entered" from="Bottom2" to="Bottom2" method="_on_body_entered"]
+[connection signal="pressed" from="WinOrLoseUI/LoseUI/TryAgain" to="WinOrLoseUI" method="onButtonPressed"]

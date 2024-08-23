@@ -13,7 +13,7 @@ public partial class outBall : Area2D
 	{
 	}
 
-	public void body_entered(Node body)
+	public void _on_body_entered(Node body)
     {
         this.GetTree().Root.RemoveChild(body);
         body.Dispose();
